@@ -16,7 +16,6 @@ export const store = configureStore({
         user: userReducer,
         users: usersReducer,
     },
-    devTools: process.env.NODE_ENV !== "production",
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({}).concat([usersApi.middleware, authUserApi.middleware]),
         
