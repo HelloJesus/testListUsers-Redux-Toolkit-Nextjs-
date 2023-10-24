@@ -33,7 +33,7 @@ export default function Home() {
   const usersData = useAppSelector((state) => state.users)
 
   const currentUser = useAppSelector((state) => state.auth.user)
-  const countPages = usersData && Math.floor(usersData.users.length / 10) || 0
+  const countPages = usersData && Math.ceil(usersData.users.length / 10) || 0
 
   useEffect(() => {
     if (usersData && usersData.users) {
