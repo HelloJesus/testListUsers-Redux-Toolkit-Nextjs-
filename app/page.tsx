@@ -101,7 +101,7 @@ export default function Home() {
             nextLabel="next"
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
-            pageCount={countPages}
+            pageCount={Math.ceil(usersData.users.length / 10)}
             previousLabel="previous"
             // renderOnZeroPageCount={null}
             initialPage={offset}
