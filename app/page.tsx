@@ -24,7 +24,6 @@ export default function Home() {
   const [itemOffset, setItemOffset] = useState(0)
   const [rangeUsers, setRangeUsers] = useState<any>()
   const [searchName, setSearchName] = useState<string>('')
-  const [countPg, setCountPg] = useState<number>(1)
   const router = useRouter()
 
   const { data: users } = useGetUsersQuery(null)
@@ -43,9 +42,6 @@ export default function Home() {
 
       const range = usersData.users.slice(prevOffset, nextOffset)
 
-      if (countPg === 1 ) {
-        setCountPg(Math.ceil(usersData.users.length / 10))
-      }
       setRangeUsers(range)
     }
   }, [itemOffset, usersData])
@@ -76,7 +72,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-24">
       {/* <button onClick={() => setSearchName('Al')}>search</button> */}
-      <div className="mr-auto text-lg mb-4">{currentUser ? (<div>User: currentUser</div>) : (<Link href='/login'>Login</Link>)}</div>
+      <div className="mr-auto text-lg mb-4">{currentUser ? ( <div>User: currentUser</div> ) : ( <Link href='/login'>Login</Link> )}</div>
       <div>
         <table className="table-auto">
           <thead className="bg-slate-200 ">
@@ -105,7 +101,7 @@ export default function Home() {
             nextLabel="next"
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
-            pageCount={countPg}
+            pageCount={countPages}
             previousLabel="previous"
             // renderOnZeroPageCount={null}
             initialPage={offset}
