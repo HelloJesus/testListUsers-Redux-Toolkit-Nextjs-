@@ -9,7 +9,9 @@ export const ErrorMsg = ({ delay, usersError }: { delay: number, usersError: Fet
             return (
                 <Expire delay={delay}>
                     <div className={`absolute bg-red-500 block transition rounded-md py-2 px-3 top-0 -translate-x-[50%]`}>
-                        <p className="text-white">{(errMsg?.birthday_date && errMsg?.birthday_date[0]) || 'Error'}</p>
+                        <p className="text-white">{(errMsg?.birthday_date && errMsg?.birthday_date[0]) ||
+                        (errMsg?.email && errMsg?.email[0])
+                        || 'Error'}</p>
                     </div>
                 </Expire>
             )

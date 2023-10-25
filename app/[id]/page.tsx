@@ -18,7 +18,7 @@ export default function Home() {
     const [createUser, { data: createdUser, error: createUserError }] = useCreateUserMutation()
     const [updateUser, { data: updatedUser, error: updateUserError }] = useUpdateUserMutation()
     const [deleteUser, { data: deletedUser, error: deleteUserError }] = useDeleteUserMutation()
-
+   
     const currentUser = useAppSelector((state) => state.auth.user)
 
     const setUpdateUser = (id: string, name: string, email: string, birthDay: string, phone: string, address: string) => {
